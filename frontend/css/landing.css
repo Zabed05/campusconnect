@@ -1,0 +1,470 @@
+/**
+ * CampusConnect - Landing Page Styles
+ * Academic Modern Visual Reference
+ */
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.cc-hero {
+  position: relative;
+  padding: var(--space-xl) 0 var(--space-2xl);
+  background: radial-gradient(circle at 80% 20%, rgba(37, 99, 235, 0.05) 0%, transparent 60%),
+              radial-gradient(circle at 20% 80%, rgba(30, 58, 138, 0.04) 0%, transparent 50%),
+              var(--color-background);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .cc-hero {
+    padding: var(--space-2xl) 0 var(--space-3xl);
+  }
+}
+
+.cc-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 4px 12px;
+  background-color: var(--color-primary-container);
+  border: 1px solid #bfdbfe;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  max-width: 100%;
+}
+
+.cc-hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.15;
+  color: var(--color-primary);
+  letter-spacing: var(--tracking-tight);
+  max-width: 820px;
+  margin-bottom: var(--space-md);
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.cc-hero-subtitle {
+  font-size: clamp(1.0625rem, 2vw, 1.25rem);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 680px;
+  margin-bottom: var(--space-xl);
+}
+
+/* Hero Action Buttons */
+.cc-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+}
+
+@media (max-width: 480px) {
+  .cc-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: var(--space-sm);
+  }
+  .cc-hero-actions .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+/* Quick Campus Search Bar */
+.cc-search-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  max-width: 960px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .cc-search-card {
+    grid-template-columns: 2fr 1.5fr auto;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+  }
+}
+
+@media (max-width: 767px) {
+  .cc-search-card {
+    padding: var(--space-sm);
+  }
+  .cc-search-field {
+    min-height: 42px;
+  }
+  .cc-search-card .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+}
+
+.cc-search-field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+}
+
+.cc-search-field input,
+.cc-search-field select {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: var(--font-size-supporting);
+  color: var(--color-text-primary);
+}
+
+.cc-search-field input:focus,
+.cc-search-field select:focus {
+  outline: none;
+}
+
+/* Institutional Metrics Bar */
+.cc-metrics-bar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .cc-metrics-bar {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+  }
+}
+
+@media (max-width: 400px) {
+  .cc-metrics-bar {
+    gap: var(--space-sm);
+  }
+}
+
+.cc-metric-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.cc-metric-value {
+  font-family: var(--font-mono);
+  font-size: clamp(1.625rem, 3.5vw, 2.25rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  line-height: 1.2;
+}
+
+.cc-metric-label {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  font-weight: var(--font-weight-medium);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Campus Announcements Ticker
+   ========================================================================== */
+.cc-announcement-strip {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-sm) 0;
+}
+
+.cc-announcement-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.cc-announcement-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-primary);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.cc-announcement-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   Featured Events Section
+   ========================================================================== */
+.cc-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .cc-section-header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.cc-event-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .cc-event-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cc-event-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Event Card Component */
+.cc-event-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+}
+
+.cc-event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-border-hover);
+}
+
+.cc-event-card-banner {
+  height: 100px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--space-sm);
+  color: #ffffff;
+}
+
+.cc-date-badge {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: 4px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  line-height: 1.1;
+  border: 1px solid var(--color-border);
+}
+
+.cc-date-month {
+  font-size: 12px;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+.cc-date-day {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+}
+
+.cc-event-card-body {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  overflow-wrap: break-word;
+}
+
+.cc-event-card-title {
+  font-size: var(--font-size-card-title);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-tight);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-xs);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cc-event-meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.cc-event-description-snippet {
+  font-size: var(--font-size-supporting);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-normal);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-md);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Capacity Indicator Bar */
+.cc-capacity-wrapper {
+  margin-top: auto;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-surface-subtle);
+  margin-bottom: var(--space-md);
+}
+
+.cc-capacity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  margin-bottom: 4px;
+}
+
+.cc-progress-track {
+  height: 6px;
+  background-color: var(--color-surface-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.cc-progress-fill {
+  height: 100%;
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-full);
+}
+
+.cc-event-card-footer {
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+.cc-event-card-footer .btn {
+  width: 100%;
+  min-height: 42px;
+}
+
+/* ==========================================================================
+   Campus Capabilities / Why CampusConnect
+   ========================================================================== */
+.cc-features-section {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-2xl) 0;
+}
+
+@media (min-width: 768px) {
+  .cc-features-section {
+    padding: var(--space-3xl) 0;
+  }
+}
+
+.cc-feature-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-primary-container);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+}
+
+/* ==========================================================================
+   CTA Banner Section
+   ========================================================================== */
+.cc-cta-banner {
+  margin: var(--space-2xl) 0;
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--color-primary) 0%, #172554 100%);
+  color: #ffffff;
+  padding: var(--space-xl) var(--space-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .cc-cta-banner {
+    padding: var(--space-2xl) var(--space-xl);
+    margin: var(--space-3xl) 0;
+  }
+}
+
+@media (min-width: 860px) {
+  .cc-cta-banner {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.cc-cta-banner h2 {
+  color: #ffffff;
+  font-size: clamp(1.625rem, 3vw, 2.25rem);
+  margin-bottom: var(--space-2xs);
+}
+
+.cc-cta-banner p {
+  color: #bfdbfe;
+  font-size: clamp(1rem, 1.8vw, 1.125rem);
+  max-width: 580px;
+}
+
+@media (max-width: 480px) {
+  .cc-cta-banner .flex {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cc-cta-banner .flex .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,543 @@
+/**
+ * CampusConnect - Reusable Layout & Navigation CSS
+ * Shared Header, Responsive Drawer, Breadcrumbs, and Footer
+ */
+
+/* ==========================================================================
+   Global App Shell
+   ========================================================================== */
+.cc-app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+}
+
+.cc-main-content {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+/* ==========================================================================
+   Top Navigation Header
+   ========================================================================== */
+.cc-header {
+  height: var(--header-height);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.cc-header-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+/* Brand Identity */
+.cc-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.cc-brand-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary), #1e40af);
+  color: var(--color-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.cc-brand-text {
+  letter-spacing: var(--tracking-tight);
+}
+
+.cc-brand-badge {
+  font-size: 12px;
+  background-color: var(--color-primary-container);
+  color: var(--color-primary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+  font-weight: var(--font-weight-semibold);
+  margin-left: 2px;
+}
+
+@media (max-width: 480px) {
+  .cc-header-container {
+    gap: var(--space-xs);
+  }
+  .cc-brand {
+    gap: 6px;
+  }
+  .cc-brand-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .cc-brand-icon .icon {
+    font-size: 18px;
+  }
+  .cc-brand-text {
+    font-size: 17px;
+  }
+  .cc-brand-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 350px) {
+  .cc-brand-text {
+    font-size: 16px;
+  }
+}
+
+/* Primary Navigation Links (Desktop) */
+.cc-nav-list {
+  display: none;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 860px) {
+  .cc-nav-list {
+    display: flex;
+  }
+}
+
+.cc-nav-link {
+  font-size: var(--font-size-nav);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  padding: var(--space-xs) 0;
+  position: relative;
+  transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cc-nav-link:hover {
+  color: var(--color-primary);
+}
+
+.cc-nav-link.active {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.cc-nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+}
+
+/* Hide Student Portal on Landing Page navbar and mobile drawer */
+.cc-page-landing #nav-login,
+.cc-page-landing a[href*="login.html"].cc-nav-link {
+  display: none !important;
+}
+
+/* Minimal Header for Sign In / Login Page: Only Logo and Back to Campus Home */
+.cc-page-login .cc-nav-list,
+.cc-page-login #primary-nav-links,
+.cc-page-login .cc-mobile-toggle,
+.cc-page-login .cc-drawer-overlay,
+.cc-header-minimal .cc-nav-list,
+.cc-header-minimal #primary-nav-links,
+.cc-header-minimal .cc-mobile-toggle {
+  display: none !important;
+}
+
+@media (max-width: 480px) {
+  #btn-back-home {
+    padding: 0 10px;
+    height: 36px;
+    font-size: var(--text-sm);
+    gap: 4px;
+  }
+}
+
+@media (max-width: 360px) {
+  #btn-back-home span:last-child {
+    font-size: var(--text-xs);
+  }
+}
+
+/* User Actions & Authenticated Profile Menu */
+.cc-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+@media (max-width: 639px) {
+  .cc-header-actions {
+    gap: var(--space-xs);
+  }
+  /* Hide Explore Events CTA in header on mobile to prevent overflow (already in drawer & hero) */
+  body:not(.cc-page-login) #header-btn-cta {
+    display: none !important;
+  }
+  /* In user chip, hide name and student ID on mobile, keep avatar */
+  .cc-user-chip .flex.flex-col {
+    display: none !important;
+  }
+  .cc-user-chip {
+    padding: 2px;
+  }
+  /* Hide logout button in top bar on mobile (available in drawer footer) */
+  #header-btn-logout {
+    display: none !important;
+  }
+  #header-btn-login {
+    padding: 0 12px;
+    height: 36px;
+    font-size: var(--text-sm);
+  }
+}
+
+.cc-notification-btn {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+  touch-action: manipulation;
+}
+
+@media (max-width: 480px) {
+  .cc-notification-btn {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.cc-notification-btn:hover {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-primary);
+}
+
+.cc-notification-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-danger);
+  border: 2px solid var(--color-surface);
+}
+
+/* User Profile Badge & Chip */
+.cc-user-chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 4px 10px 4px 4px;
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  color: var(--color-text-primary);
+  touch-action: manipulation;
+}
+
+.cc-user-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-xs);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Mobile Hamburger Toggle */
+.cc-mobile-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+@media (min-width: 860px) {
+  .cc-mobile-toggle {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Mobile Navigation Drawer (Slide-over)
+   ========================================================================== */
+.cc-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 200;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.cc-drawer-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cc-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 290px;
+  max-width: 85vw;
+  background-color: var(--color-surface);
+  z-index: 210;
+  box-shadow: var(--shadow-modal);
+  transform: translateX(100%);
+  transition: transform var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  -webkit-overflow-scrolling: touch;
+}
+
+.cc-drawer-overlay.is-open .cc-drawer {
+  transform: translateX(0);
+}
+
+.cc-drawer-header {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cc-drawer-body {
+  padding: var(--space-md);
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  -webkit-overflow-scrolling: touch;
+}
+
+.cc-drawer-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  min-height: 44px;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  transition: background-color var(--transition-fast);
+  touch-action: manipulation;
+}
+
+.cc-drawer-link:hover,
+.cc-drawer-link.active {
+  background-color: var(--color-primary-container);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.cc-drawer-footer {
+  padding: var(--space-md);
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface-subtle);
+}
+
+/* ==========================================================================
+   Breadcrumbs Component
+   ========================================================================== */
+.cc-breadcrumb-nav {
+  padding: var(--space-sm) 0;
+  font-size: var(--text-sm);
+}
+
+.cc-breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  color: var(--color-text-muted);
+}
+
+.cc-breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.cc-breadcrumb-item a {
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.cc-breadcrumb-item a:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.cc-breadcrumb-item.current {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.cc-breadcrumb-separator {
+  color: var(--color-text-subtle);
+  font-size: 16px;
+  user-select: none;
+}
+
+/* ==========================================================================
+   Global Institutional Footer
+   ========================================================================== */
+.cc-footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  margin-top: auto;
+  padding: var(--space-2xl) 0 var(--space-lg);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.cc-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 639px) {
+  .cc-footer {
+    padding: var(--space-xl) 0 var(--space-md);
+  }
+  .cc-footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+  .cc-footer-brand p {
+    max-width: 100%;
+  }
+  .cc-footer-bottom {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding-top: var(--space-md);
+  }
+}
+
+@media (min-width: 640px) {
+  .cc-footer-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cc-footer-grid {
+    grid-template-columns: 2.5fr 1fr 1fr 1.2fr;
+  }
+}
+
+.cc-footer-brand p {
+  margin-top: var(--space-xs);
+  color: var(--color-text-secondary);
+  max-width: 320px;
+  line-height: var(--leading-relaxed);
+}
+
+.cc-footer-col h4 {
+  font-size: var(--text-md);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.cc-footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.cc-footer-links a {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  transition: color var(--transition-fast);
+}
+
+.cc-footer-links a:hover {
+  color: var(--color-primary);
+}
+
+.cc-footer-bottom {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-md);
+  font-size: var(--text-sm);
+}
+
+@media (min-width: 768px) {
+  .cc-footer-bottom {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.cc-system-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.cc-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-success);
+}

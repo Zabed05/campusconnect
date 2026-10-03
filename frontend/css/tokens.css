@@ -1,0 +1,147 @@
+/**
+ * CampusConnect - CSS Design Tokens
+ * Academic Modern Design System
+ * 
+ * Strict 4px/8px coordinate grid, Hanken Grotesk typography,
+ * collegiate navy & vibrant slate blue color palette.
+ */
+
+:root {
+  /* Core Brand Colors */
+  --color-primary: #1e3a8a;          /* Deep collegiate navy */
+  --color-primary-hover: #1d4ed8;
+  --color-primary-active: #172554;
+  --color-primary-container: #e5eeff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #1e3a8a;
+
+  --color-secondary: #2563eb;        /* Slate blue interactive accent */
+  --color-secondary-hover: #1d4ed8;
+  --color-secondary-active: #1e40af;
+  --color-secondary-container: #eff6ff;
+  --color-on-secondary: #ffffff;
+
+  --color-tertiary: #0284c7;         /* Informational sky blue */
+  --color-tertiary-container: #e0f2fe;
+  --color-on-tertiary: #ffffff;
+
+  /* Surface Architecture */
+  --color-background: #f8faff;       /* Calm, low-fatigue canvas */
+  --color-surface: #ffffff;          /* Card & modal surface */
+  --color-surface-subtle: #f1f5f9;   /* Muted inset surface, table headers */
+  --color-surface-container: #e5eeff;/* Soft tint containers */
+  --color-surface-hover: #f8fafc;
+
+  /* Typography Colors */
+  --color-text-primary: #0f172a;     /* Slate 900 - Headlines & high-priority data */
+  --color-text-secondary: #334155;   /* Slate 700 - Body text */
+  --color-text-muted: #475569;       /* Slate 600 - Secondary labels & meta */
+  --color-text-subtle: #94a3b8;      /* Slate 400 - Placeholders & subtle icons */
+
+  /* Structural Borders */
+  --color-border: #e2e8f0;          /* 1px default component border */
+  --color-border-hover: #cbd5e1;
+  --color-border-focus: #1d4ed8;
+
+  /* Semantic Feedback Colors */
+  --color-success: #059669;
+  --color-success-bg: #ecfdf5;
+  --color-success-border: #a7f3d0;
+  --color-success-text: #065f46;
+
+  --color-warning: #d97706;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #fde68a;
+  --color-warning-text: #92400e;
+
+  --color-danger: #e11d48;
+  --color-danger-bg: #fff1f2;
+  --color-danger-border: #fecdd3;
+  --color-danger-text: #9f1239;
+
+  --color-info: #0284c7;
+  --color-info-bg: #f0f9ff;
+  --color-info-border: #bae6fd;
+  --color-info-text: #0369a1;
+
+  /* ========================================================================
+     Typography System (Academic Modern & Modern Scaled Hierarchy)
+     ======================================================================== */
+  --font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Type Scale Tokens */
+  --text-2xs: 0.75rem;    /* 12px - secondary micro-metadata only */
+  --text-xs: 0.8125rem;   /* 13px - status pills & badges */
+  --text-sm: 0.875rem;    /* 14px - metadata & secondary labels */
+  --text-base: 0.9375rem; /* 15px - supporting text & secondary content */
+  --text-md: 1rem;        /* 16px - body text & form inputs baseline */
+  --text-lg: 1.1875rem;   /* 19px - subheadings & card titles */
+  --text-xl: 1.5rem;      /* 24px - section sub-headers & modal titles */
+  --text-2xl: 2rem;       /* 32px - section titles & card highlights */
+  --text-3xl: 2.5rem;     /* 40px - page titles */
+  --text-4xl: 3.5rem;     /* 56px - large desktop hero */
+
+  /* Reusable Semantic Typography Variables */
+  --font-size-hero: clamp(2rem, 5vw, 3.5rem);              /* 32px to 56px */
+  --font-size-page-title: clamp(1.75rem, 3.5vw, 2.5rem);   /* 28px to 40px */
+  --font-size-section-heading: clamp(1.5rem, 2.5vw, 2rem);  /* 24px to 32px */
+  --font-size-card-title: 1.1875rem;                       /* 19px */
+  --font-size-body: 1rem;                                  /* 16px */
+  --font-size-supporting: 0.9375rem;                       /* 15px */
+  --font-size-small: 0.875rem;                             /* 14px */
+  --font-size-nav: 0.96875rem;                             /* 15.5px */
+  --font-size-btn: 0.96875rem;                             /* 15.5px */
+  --font-size-btn-sm: 0.875rem;                            /* 14px */
+  --font-size-btn-lg: 1.0625rem;                           /* 17px */
+  --font-size-input: 1rem;                                 /* 16px */
+  --font-size-label: 0.9375rem;                            /* 15px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.04em;
+
+  /* Spacing Scale (4px/8px modular grid) */
+  --space-2xs: 0.25rem;   /* 4px */
+  --space-xs: 0.5rem;     /* 8px */
+  --space-sm: 0.75rem;    /* 12px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
+
+  /* Border Radii */
+  --radius-sm: 6px;       /* Inputs, table cells, micro-badges */
+  --radius-md: 8px;       /* Primary buttons, dropdowns, cards */
+  --radius-lg: 12px;      /* Major panels, modals, feature cards */
+  --radius-xl: 16px;      /* Hero containers */
+  --radius-full: 9999px;  /* Status pills, circular avatars */
+
+  /* Elevation & Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+  --shadow-hover: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
+  --shadow-modal: 0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
+
+  /* Layout Constraints */
+  --layout-max-width: 1280px;
+  --container-padding: clamp(12px, 3vw, 24px);
+  --sidebar-width: 240px;
+  --sidebar-collapsed: 68px;
+  --header-height: 64px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease-in-out;
+}

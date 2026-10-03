@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Details - CampusConnect</title>
+  <meta name="description" content="View comprehensive campus event details, scheduling, capacity, and registration status." />
+
+  <!-- Google Fonts: Hanken Grotesk, JetBrains Mono, Material Symbols Outlined -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- CSS Architecture -->
+  <link rel="stylesheet" href="../css/tokens.css" />
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/foundation.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/events.css" />
+</head>
+<body class="cc-app-shell">
+
+  <!-- ========================================================================
+       SHARED HEADER NAVIGATION
+       ======================================================================== -->
+  <header class="cc-header" id="app-header">
+    <div class="container cc-header-container">
+      
+      <!-- Brand Identity -->
+      <div class="flex items-center gap-xl">
+        <a href="../index.html" class="cc-brand" id="brand-link">
+          <div class="cc-brand-icon">
+            <span class="icon icon-md">account_balance</span>
+          </div>
+          <span class="cc-brand-text">CampusConnect</span>
+        </a>
+
+        <!-- Desktop Navigation Items -->
+        <nav class="cc-nav-list" id="primary-nav-links" aria-label="Main Navigation"></nav>
+      </div>
+
+      <!-- Header Action Items -->
+      <div class="flex items-center gap-sm">
+        <div class="cc-header-actions" id="header-actions-container"></div>
+        
+        <!-- Mobile Drawer Toggle Button -->
+        <button class="cc-mobile-toggle" id="mobile-drawer-toggle" aria-label="Open menu">
+          <span class="icon icon-md">menu</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       MOBILE NAVIGATION DRAWER
+       ======================================================================== -->
+  <div class="cc-drawer-overlay" id="mobile-drawer-overlay" aria-hidden="true">
+    <aside class="cc-drawer" id="mobile-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <div class="cc-drawer-header">
+        <div class="cc-brand">
+          <div class="cc-brand-icon">
+            <span class="icon icon-sm">account_balance</span>
+          </div>
+          <span class="cc-brand-text" style="font-size: var(--text-md);">CampusConnect</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="drawer-close-btn" aria-label="Close menu">
+          <span class="icon icon-md">close</span>
+        </button>
+      </div>
+      <nav class="cc-drawer-body" id="drawer-nav-links"></nav>
+      <div class="cc-drawer-footer" id="drawer-footer-container"></div>
+    </aside>
+  </div>
+
+  <!-- ========================================================================
+       MAIN CONTENT: Event Details
+       ======================================================================== -->
+  <main class="cc-main-content">
+
+    <!-- Breadcrumb Bar -->
+    <div style="background-color: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: 8px 0;">
+      <div class="container">
+        <nav class="cc-breadcrumbs" aria-label="Breadcrumb">
+          <div class="cc-breadcrumb-item">
+            <a href="../index.html">Home</a>
+            <span class="cc-breadcrumb-separator icon icon-sm">chevron_right</span>
+          </div>
+          <div class="cc-breadcrumb-item">
+            <a href="./events.html">Event Catalog</a>
+            <span class="cc-breadcrumb-separator icon icon-sm">chevron_right</span>
+          </div>
+          <div class="cc-breadcrumb-item current" aria-current="page">Event Details</div>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Event Hero Header -->
+    <section class="cc-details-hero">
+      <div class="container">
+        <div class="flex items-center justify-between gap-xs flex-wrap" style="margin-bottom: var(--space-xs);">
+          <div class="cc-details-hero-badge">
+            <span class="icon icon-sm">category</span>
+            <span id="details-event-category">Technology</span>
+          </div>
+          <div id="details-event-status-badge">
+            <span class="badge badge-success font-mono">PUBLISHED</span>
+          </div>
+        </div>
+
+        <h1 class="cc-details-title" id="details-event-title">Loading Event...</h1>
+
+        <div class="cc-details-meta-bar">
+          <div class="cc-details-meta-item">
+            <span class="icon icon-sm">calendar_month</span>
+            <span id="details-event-date" class="font-mono">Oct 24, 2026</span>
+          </div>
+          <div class="cc-details-meta-item">
+            <span class="icon icon-sm">schedule</span>
+            <span id="details-event-time" class="font-mono">10:00 AM – 3:30 PM</span>
+          </div>
+          <div class="cc-details-meta-item">
+            <span class="icon icon-sm">location_on</span>
+            <span id="details-event-location">Turing Hall, Auditorium A</span>
+          </div>
+          <div class="cc-details-meta-item">
+            <span class="icon icon-sm">account_circle</span>
+            <span>Organized by <strong id="details-event-organizer">Department</strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two-Column Details Grid -->
+    <div class="container">
+      <div class="cc-details-grid">
+        
+        <!-- Left Main Content Column -->
+        <div>
+          
+          <!-- Event Overview / Description -->
+          <article class="cc-details-card">
+            <h2>About This Event</h2>
+            <p class="cc-details-description" id="details-description-text">
+              Loading event description...
+            </p>
+          </article>
+
+          <!-- Key Event Information Table -->
+          <article class="cc-details-card">
+            <h2>Event Information</h2>
+            <table class="cc-info-table">
+              <tbody>
+                <tr>
+                  <td class="cc-info-label">Event Location</td>
+                  <td class="cc-info-value" id="table-event-location">Turing Hall, Auditorium A</td>
+                </tr>
+                <tr>
+                  <td class="cc-info-label">Event Date</td>
+                  <td class="cc-info-value font-mono" id="table-event-date">Oct 24, 2026</td>
+                </tr>
+                <tr>
+                  <td class="cc-info-label">Scheduled Time</td>
+                  <td class="cc-info-value font-mono" id="table-event-time">10:00 AM – 3:30 PM</td>
+                </tr>
+                <tr>
+                  <td class="cc-info-label">Registration Deadline</td>
+                  <td class="cc-info-value font-mono text-secondary" id="table-event-deadline">Oct 22, 2026</td>
+                </tr>
+                <tr>
+                  <td class="cc-info-label">Maximum Capacity</td>
+                  <td class="cc-info-value font-mono" id="table-event-capacity">250 Participants</td>
+                </tr>
+                <tr>
+                  <td class="cc-info-label">Organizing Body</td>
+                  <td class="cc-info-value" id="table-event-organizer">Department of Computer Science</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+        </div>
+
+        <!-- Right Column: Sticky Registration Panel -->
+        <aside class="cc-reg-panel-sticky">
+          <div class="cc-reg-action-card">
+            <h3>Event Registration</h3>
+            <p class="text-xs text-muted">
+              Check registration status and reserve your spot for this campus event.
+            </p>
+
+            <div id="details-reg-action-container">
+              <!-- Rendered dynamically by event-details.js with the 6 UI registration states -->
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========================================================================
+       INSTITUTIONAL FOOTER
+       ======================================================================== -->
+  <footer class="cc-footer" id="app-footer">
+    <div class="container">
+      <div class="cc-footer-grid">
+        <div class="cc-footer-brand">
+          <div class="cc-brand">
+            <div class="cc-brand-icon">
+              <span class="icon icon-sm">account_balance</span>
+            </div>
+            <span class="cc-brand-text">CampusConnect</span>
+          </div>
+          <p>
+            The centralized university platform for discovering events, registering for sessions, 
+            and staying informed about campus announcements.
+          </p>
+        </div>
+
+        <div class="cc-footer-col">
+          <h4>Navigation</h4>
+          <ul class="cc-footer-links">
+            <li><a href="../index.html">Campus Home</a></li>
+            <li><a href="./events.html">Event Catalog</a></li>
+            <li><a href="./dashboard.html">Student Dashboard</a></li>
+            <li><a href="./login.html">Portal Sign In</a></li>
+          </ul>
+        </div>
+
+        <div class="cc-footer-col">
+          <h4>Support</h4>
+          <ul class="cc-footer-links">
+            <li><a href="./events.html">Browse All Events</a></li>
+            <li><a href="./dashboard.html">My Registrations</a></li>
+          </ul>
+        </div>
+
+        <div class="cc-footer-col">
+          <h4>Campus Administration</h4>
+          <p style="font-size: var(--text-sm); line-height: var(--leading-relaxed); margin-bottom: var(--space-xs);">
+            State University Platform<br />
+            campusconnect@university.edu
+          </p>
+          <div class="cc-system-status">
+            <span class="cc-status-dot"></span>
+            <span>All systems operational</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cc-footer-bottom">
+        <p>
+          &copy; 2026 CampusConnect University Platform. All rights reserved.
+        </p>
+        <div class="flex items-center gap-md">
+          <a href="../index.html" class="text-muted">Home</a>
+          <a href="./events.html" class="text-muted">Events</a>
+          <a href="./dashboard.html" class="text-muted">Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../js/app.js"></script>
+  <script src="../js/data.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/event-details.js"></script>
+</body>
+</html>
